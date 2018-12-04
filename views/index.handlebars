@@ -1,0 +1,59 @@
+<div class="row burger-row">
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Burgers Available To Devour</h3>
+            </div>
+
+            <div class="panel-body">
+                {{#each burgers}}
+                {{#unless devoured}}
+                <div class="row burger-item">
+                    <div class="col-xs-8">
+                        <p>#{{id}} {{burger_name}}</p>
+                    </div>
+                    <div class="col-xs-4 float-right"><button data-id="{{id}}" class="btn btn-default devour-burger">Devour
+                            it!</button></div>
+                </div>
+                {{/unless}}
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">Burgers Devoured</h3>
+            </div>
+
+            <div class="panel-body">
+                {{#each burgers}}
+                {{#if devoured}}
+                <div class="row burger-item">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <p>#{{id}} - {{burger_name}}</p>
+                    </div>
+                </div>
+                {{/if}}
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form action="/" method="POST" class="input-group">
+            <input type="text" class="form-control align-center" name="burger" placeholder="Create a burger">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit"> Submit Burger</button>
+            </div>
+        </form>
+    </div>
+</div>
